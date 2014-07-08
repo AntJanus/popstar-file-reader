@@ -1,0 +1,5 @@
+node_modules/
+public/components
+.DS_Store
+bower_components
+coverage
