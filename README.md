@@ -1,3 +1,6 @@
+[![Stories in Ready](https://badge.waffle.io/antjanus/popstar-file-reader.png?label=ready&title=Ready)](https://waffle.io/antjanus/popstar-cms)
+![build status](https://travis-ci.org/AntJanus/popstar-file-reader.svg?branch=master) ![dependencies](https://david-dm.org/antjanus/popstar-file-reader.png) [![Coverage Status](https://coveralls.io/repos/AntJanus/popstar-file-reader/badge.png?branch=code-coverage)](https://coveralls.io/r/AntJanus/popstar-cms?branch=code-coverage)
+
 Popstar File Reader
 ===================
 
