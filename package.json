@@ -1,6 +1,6 @@
 {
   "name": "popstar-file-reader",
-  "version": "0.1.01",
+  "version": "0.2.1",
   "description": "A package that allows using directories filled with markdown files as a CMS, an API, or other purposes. Popstar parses through the markdown files in a format and returns it in an array.",
   "main": "./lib/reader.js",
   "repository": {
