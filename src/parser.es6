@@ -1,19 +1,14 @@
-"use strict";
+import 'core-js/shim';
+import _ from 'lodash';
 
-var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
-
-require("core-js/shim");
-
-var _ = _interopRequire(require("lodash"));
-
-var parser = function parser(options) {
+var parser = function(options) {
   this.globalOptions = {
     split: /-{3,}(\r\n|\r|\n)/g,
     varSplit: /^(\w+)(\[\])?:/,
     arraySplit: /\[\]/
   };
 
-  this.options = function (options) {
+  this.options = function(options) {
     if (options) {
       _.extend(this.globalOptions, options);
       return this;
@@ -22,7 +17,7 @@ var parser = function parser(options) {
     }
   };
 
-  if (options) {
+  if(options) {
     _.extend(this.globalOptions, options);
     return this;
   }
@@ -32,15 +27,16 @@ var parser = function parser(options) {
 
 parser.prototype = {
 
-  parseFile: function parseFile(fileString) {
+
+  parseFile: function(fileString) {
     var parts = fileString.split(this.globalOptions.split);
     var data = {};
     var self = this;
-    _.each(parts, function (part) {
+    _.each(parts, function(part) {
       var parsed = self.parseVariable(part);
-      if (parsed !== false) {
-        if (parsed.array == true) {
-          if (!_.isArray(data[parsed.name])) {
+      if(parsed !== false) {
+        if(parsed.array == true) {
+          if(!_.isArray(data[parsed.name])) {
             data[parsed.name] = [];
           }
           data[parsed.name].push(parsed.content);
@@ -53,27 +49,29 @@ parser.prototype = {
     return data;
   },
 
-  parseVariable: function parseVariable(varString) {
+  parseVariable: function(varString) {
     var parsedString = {};
     var name = varString.match(this.globalOptions.varSplit);
-    if (_.isEmpty(name)) {
+    if(_.isEmpty(name)) {
       return false;
     } else {
 
-      parsedString.array = this.arrayCheck(name[0]);
-      parsedString.name = name[0].slice(0, parsedString.array ? -3 : -1).trim();
-      parsedString.content = varString.replace(this.globalOptions.varSplit, "").trim();
+      parsedString.array   = this.arrayCheck(name[0]);
+      parsedString.name    = name[0].slice(0, parsedString.array ? -3 : -1).trim();
+      parsedString.content = varString.replace(this.globalOptions.varSplit, '').trim();
 
       return parsedString;
     }
   },
 
-  arrayCheck: function arrayCheck(varString) {
-    if (!_.isEmpty(varString.match(this.globalOptions.arraySplit))) {
+  arrayCheck: function(varString) {
+    if(!_.isEmpty(varString.match(this.globalOptions.arraySplit))) {
       return true;
     }
 
     return false;
-  } };
+  },
 
-module.exports = parser;
+};
+
+export default parser;
