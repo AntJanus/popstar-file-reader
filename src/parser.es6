@@ -1,14 +1,21 @@
 import 'core-js/shim';
 import _ from 'lodash';
 
-var parser = function(options) {
-  this.globalOptions = {
-    split: /-{3,}(\r\n|\r|\n)/g,
-    varSplit: /^(\w+)(\[\])?:/,
-    arraySplit: /\[\]/
-  };
+class parser {
 
-  this.options = function(options) {
+  constructor(options) {
+    this.globalOptions = {
+      split: /-{3,}(\r\n|\r|\n)/g,
+      varSplit: /^(\w+)(\[\])?:/,
+      arraySplit: /\[\]/
+    };
+
+    if(options) {
+      _.extend(this.globalOptions, options);
+    }
+  }
+
+  options(options) {
     if (options) {
       _.extend(this.globalOptions, options);
       return this;
@@ -17,18 +24,7 @@ var parser = function(options) {
     }
   };
 
-  if(options) {
-    _.extend(this.globalOptions, options);
-    return this;
-  }
-
-  return this;
-};
-
-parser.prototype = {
-
-
-  parseFile: function(fileString) {
+  parseFile(fileString) {
     var parts = fileString.split(this.globalOptions.split);
     var data = {};
     var self = this;
@@ -47,9 +43,9 @@ parser.prototype = {
     });
 
     return data;
-  },
+  }
 
-  parseVariable: function(varString) {
+  parseVariable(varString) {
     var parsedString = {};
     var name = varString.match(this.globalOptions.varSplit);
     if(_.isEmpty(name)) {
@@ -62,7 +58,7 @@ parser.prototype = {
 
       return parsedString;
     }
-  },
+  }
 
   arrayCheck: function(varString) {
     if(!_.isEmpty(varString.match(this.globalOptions.arraySplit))) {
@@ -70,8 +66,8 @@ parser.prototype = {
     }
 
     return false;
-  },
+  }
 
-};
+}
 
 export default parser;
