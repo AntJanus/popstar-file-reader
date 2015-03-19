@@ -60,7 +60,7 @@ class parser {
     }
   }
 
-  arrayCheck: function(varString) {
+  arrayCheck(varString) {
     if(!_.isEmpty(varString.match(this.globalOptions.arraySplit))) {
       return true;
     }
