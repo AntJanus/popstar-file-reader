@@ -9,3 +9,4 @@ The engine behind Popstar CMS - https://github.com/AntJanus/popstar-cms. After w
 Why? Because for both Proverbs and Jumbotron, I found myself removing views and changing up routes (in order to build a proper API feed) and using Public for a javascript front-end driven app rather than a back-end app. Doing so, however, meant that I no longer used Popstar as a dependency and could no longer update it! D= The horror!
 
 Instead, I am splitting up Popstar CMS into Popstar File Reader (an NPM package with all the logic and tests), and a Yo generator that will (essentially) clone the Popstar CMS repo without `.git`.
+

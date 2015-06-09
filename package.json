@@ -1,6 +1,6 @@
 {
   "name": "popstar-file-reader",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "description": "A package that allows using directories filled with markdown files as a CMS, an API, or other purposes. Popstar parses through the markdown files in a format and returns it in an array.",
   "main": "./lib/reader.js",
   "repository": {
@@ -22,29 +22,18 @@
     }
   ],
   "scripts": {
-    "start": "node app.js",
-    "test": "grunt test"
+    "compile": "babel -d lib/ src/",
+    "prepublish": "npm run compile"
   },
   "dependencies": {
     "async": "^0.9.0",
+    "core-js": "^0.7.0",
     "json-structure-validator": "0.0.3",
-    "lodash": "^2.4.1"
+    "lodash": "^3.3.1"
   },
   "devDependencies": {
-    "coveralls": "^2.11.2",
-    "grunt": "^0.4.5",
-    "grunt-cli": "^0.1.13",
-    "grunt-contrib-jshint": "^0.10.0",
-    "grunt-develop": "^0.4.0",
-    "grunt-mocha-istanbul": "^2.2.0",
-    "grunt-mocha-test": "^0.12.4",
-    "istanbul": "^0.3.2",
-    "jscoverage": "^0.5.9",
-    "load-grunt-tasks": "^1.0.0",
-    "mocha": "^2.0.1",
-    "mocha-lcov-reporter": "0.0.1",
-    "request": "^2.48.0",
-    "should": "^4.3.0",
-    "time-grunt": "^1.0.0"
+    "babel": "^4.6.6",
+    "mocha": "^2.1.0",
+    "should": "^5.1.0"
   }
 }
