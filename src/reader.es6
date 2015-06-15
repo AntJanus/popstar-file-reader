@@ -38,6 +38,10 @@ class reader {
     }
   };
 
+  getParserInstance() {
+    return parser;
+  }
+
   // returns a subtree of files
   // uses glob-like pattern to find it
   // uses urlPath something/else/path
