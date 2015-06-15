@@ -1,0 +1,103 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@2.7.4
+3 info using node@v0.12.2
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec { raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/home/antonin/Projects/popstar-file-reader',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /home/antonin/.npm/popstar-file-reader/1.0.1/package.tgz not in flight; packing
+9 verbose tar pack [ '/home/antonin/.npm/popstar-file-reader/1.0.1/package.tgz',
+9 verbose tar pack   '/home/antonin/Projects/popstar-file-reader' ]
+10 verbose tarball /home/antonin/.npm/popstar-file-reader/1.0.1/package.tgz
+11 verbose folder /home/antonin/Projects/popstar-file-reader
+12 info prepublish popstar-file-reader@1.0.1
+13 verbose unsafe-perm in lifecycle true
+14 verbose addLocalTarball adding from inside cache /home/antonin/.npm/popstar-file-reader/1.0.1/package.tgz
+15 silly cache afterAdd popstar-file-reader@1.0.1
+16 verbose afterAdd /home/antonin/.npm/popstar-file-reader/1.0.1/package/package.json not in flight; writing
+17 verbose afterAdd /home/antonin/.npm/popstar-file-reader/1.0.1/package/package.json written
+18 silly publish { name: 'popstar-file-reader',
+18 silly publish   version: '1.0.1',
+18 silly publish   description: 'A package that allows using directories filled with markdown files as a CMS, an API, or other purposes. Popstar parses through the markdown files in a format and returns it in an array.',
+18 silly publish   main: './lib/reader.js',
+18 silly publish   repository:
+18 silly publish    { type: 'git',
+18 silly publish      url: 'https://github.com/AntJanus/popstar-file-reader' },
+18 silly publish   keywords: [ 'CMS', 'File reader', 'Markdown', 'API', 'Feed' ],
+18 silly publish   author:
+18 silly publish    { name: 'Antonin Januska',
+18 silly publish      email: 'http://antjanus.com',
+18 silly publish      url: 'http://twitter.com/antjanus' },
+18 silly publish   licenses: [ { type: 'MIT', url: 'http://en.wikipedia.org/wiki/MIT_License' } ],
+18 silly publish   scripts: { compile: 'babel -d lib/ src/', prepublish: 'npm run compile' },
+18 silly publish   dependencies:
+18 silly publish    { async: '^0.9.0',
+18 silly publish      'core-js': '^0.7.0',
+18 silly publish      'json-structure-validator': '0.0.3',
+18 silly publish      lodash: '^3.3.1',
+18 silly publish      through2: '^2.0.0',
+18 silly publish      'vinyl-fs': '^1.0.0' },
+18 silly publish   devDependencies: { babel: '^4.6.6', mocha: '^2.1.0', should: '^5.1.0' },
+18 silly publish   readme: '[![Stories in Ready](https://badge.waffle.io/antjanus/popstar-file-reader.png?label=ready&title=Ready)](https://waffle.io/antjanus/popstar-cms)\n![build status](https://travis-ci.org/AntJanus/popstar-file-reader.svg?branch=master) ![dependencies](https://david-dm.org/antjanus/popstar-file-reader.png) [![Coverage Status](https://coveralls.io/repos/AntJanus/popstar-file-reader/badge.png?branch=master)](https://coveralls.io/r/AntJanus/popstar-cms?branch=code-coverage)\n\nPopstar File Reader\n===================\n\nThe engine behind Popstar CMS - https://github.com/AntJanus/popstar-cms. After working on Popstar for months and months, and finally finding great utility in the file-reading engine whilst building [Proverbs App](http://proverbs-app.antjan.us) and [Jumbotron App](http://jumbotron.antjan.us/), I realized that the heart Popstar deserved its own package and ability to be used outside of the CMS.\n\nWhy? Because for both Proverbs and Jumbotron, I found myself removing views and changing up routes (in order to build a proper API feed) and using Public for a javascript front-end driven app rather than a back-end app. Doing so, however, meant that I no longer used Popstar as a dependency and could no longer update it! D= The horror!\n\nInstead, I am splitting up Popstar CMS into Popstar File Reader (an NPM package with all the logic and tests), and a Yo generator that will (essentially) clone the Popstar CMS repo without `.git`.\n\n',
+18 silly publish   readmeFilename: 'README.md',
+18 silly publish   gitHead: '0004d8dbfe18de860d09cd1ede9d0563f9875fcd',
+18 silly publish   bugs: { url: 'https://github.com/AntJanus/popstar-file-reader/issues' },
+18 silly publish   homepage: 'https://github.com/AntJanus/popstar-file-reader',
+18 silly publish   _id: 'popstar-file-reader@1.0.1',
+18 silly publish   _shasum: 'b0da9fb2efa31b3cab7df9aae5ac8a8b5406ba88',
+18 silly publish   _from: '.' }
+19 silly mapToRegistry name popstar-file-reader
+20 silly mapToRegistry using default registry
+21 silly mapToRegistry registry https://registry.npmjs.org/
+22 silly mapToRegistry uri https://registry.npmjs.org/popstar-file-reader
+23 verbose publish registryBase https://registry.npmjs.org/
+24 silly publish uploading /home/antonin/.npm/popstar-file-reader/1.0.1/package.tgz
+25 verbose request uri https://registry.npmjs.org/popstar-file-reader
+26 verbose request sending authorization for write operation
+27 info attempt registry request try #1 at 3:04:53 PM
+28 verbose request using bearer token for auth
+29 verbose request id b01abb2723ecb505
+30 http request PUT https://registry.npmjs.org/popstar-file-reader
+31 http 403 https://registry.npmjs.org/popstar-file-reader
+32 verbose headers { 'content-type': 'application/json',
+32 verbose headers   'cache-control': 'max-age=60',
+32 verbose headers   'content-length': '95',
+32 verbose headers   'accept-ranges': 'bytes',
+32 verbose headers   date: 'Mon, 15 Jun 2015 21:04:54 GMT',
+32 verbose headers   via: '1.1 varnish',
+32 verbose headers   connection: 'keep-alive',
+32 verbose headers   'x-served-by': 'cache-dfw1830-DFW',
+32 verbose headers   'x-cache': 'MISS',
+32 verbose headers   'x-cache-hits': '0',
+32 verbose headers   'x-timer': 'S1434402294.075563,VS0,VE228' }
+33 verbose request invalidating /home/antonin/.npm/registry.npmjs.org/popstar-file-reader on PUT
+34 error publish Failed PUT 403
+35 verbose stack Error: "You cannot publish over the previously published version 1.0.1." : popstar-file-reader
+35 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:247:14)
+35 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:170:14)
+35 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:344:22)
+35 verbose stack     at Request.emit (events.js:110:17)
+35 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1239:14)
+35 verbose stack     at Request.emit (events.js:129:20)
+35 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1187:12)
+35 verbose stack     at IncomingMessage.emit (events.js:129:20)
+35 verbose stack     at _stream_readable.js:908:16
+35 verbose stack     at process._tickCallback (node.js:355:11)
+36 verbose statusCode 403
+37 verbose pkgid popstar-file-reader
+38 verbose cwd /home/antonin/Projects/popstar-file-reader
+39 error Linux 3.17.1-031701-generic
+40 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+41 error node v0.12.2
+42 error npm  v2.7.4
+43 error code E403
+44 error "You cannot publish over the previously published version 1.0.1." : popstar-file-reader
+45 error If you need help, you may report this error at:
+45 error     <https://github.com/npm/npm/issues>
+46 verbose exit [ 1, true ]
