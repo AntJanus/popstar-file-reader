@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import fs from 'vinyl-fs';
-import nodeFs = from 'fs';
+import nodeFs from 'fs';
 import through from 'through2';
 import Parser from './parser';
 
