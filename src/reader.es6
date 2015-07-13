@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import fs from 'vinyl-fs';
+import nodeFs = from 'fs';
 import through from 'through2';
 import Parser from './parser';
 
@@ -81,7 +82,7 @@ class reader {
     } else {
       try {
         var filePath = path.normalize(foundPath.join('/') + '/' + self.globalOptions.filename);
-        var file = fs.readFileSync(filePath).toString();
+        var file = nodeFs.readFileSync(filePath).toString();
         data = parser.parseFile(file);
         data.path = foundPath;
         data.slug = slugPath;
@@ -112,7 +113,7 @@ class reader {
       _.merge(fullPath, existingPath);
     }
 
-    var files = fs.readdirSync(path.normalize(fullPath.join('/')));
+    var files = nodeFs.readdirSync(path.normalize(fullPath.join('/')));
 
     files.forEach(function(file) {
       if(!file.match(self.globalOptions.ignoreFiles) && found === false && currentSlug === self.parseSlug(file).slug) {
@@ -150,7 +151,7 @@ class reader {
     children.forEach(function(child) {
       parallelExecute[child] = function(callback) {
         var filePath = path.normalize(fullPath + '/' + child + '/' + self.globalOptions.filename);
-        fs.readFile(filePath, function (err, data) {
+        nodeFs.readFile(filePath, function (err, data) {
           if (err) {
             callback(err, null);
           } else {
@@ -178,7 +179,7 @@ class reader {
   //parentFile = content/1-posts <- string
   findFeedItems(parentFile, limit, offset) {
     var self  = this;
-    var files = _.filter(fs.readdirSync(parentFile), function(file) {
+    var files = _.filter(nodeFs.readdirSync(parentFile), function(file) {
       return _.isEmpty(file.split('.')[1]);
     });
     limit  = limit && limit !== 0 ? limit : files.length;
