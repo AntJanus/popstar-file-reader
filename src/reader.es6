@@ -39,6 +39,10 @@ class reader {
     }
   };
 
+  getParserInstance() {
+    return parser;
+  }
+
   // returns a subtree of files
   // uses glob-like pattern to find it
   // uses urlPath something/else/path
@@ -81,7 +85,7 @@ class reader {
       return { error: 'Not found'};
     } else {
       try {
-        var filePath = path.normalize(foundPath.join('/') + '/' + self.globalOptions.filename);
+        var filePath = path.normalize(foundPath.join('/') + '/' + self.globalOptions.fileName);
         var file = nodeFs.readFileSync(filePath).toString();
         data = parser.parseFile(file);
         data.path = foundPath;
@@ -119,7 +123,7 @@ class reader {
       if(!file.match(self.globalOptions.ignoreFiles) && found === false && currentSlug === self.parseSlug(file).slug) {
         fullPath.push(file);
         found = true;
-      } else if (_.isEmpty(currentSlug) && file === self.globalOptions.filename) {
+      } else if (_.isEmpty(currentSlug) && file === self.globalOptions.fileName) {
         if (existingPath.join('') === self.globalOptions.directory) {
           found = true;
         }
@@ -150,7 +154,7 @@ class reader {
 
     children.forEach(function(child) {
       parallelExecute[child] = function(callback) {
-        var filePath = path.normalize(fullPath + '/' + child + '/' + self.globalOptions.filename);
+        var filePath = path.normalize(fullPath + '/' + child + '/' + self.globalOptions.fileName);
         nodeFs.readFile(filePath, function (err, data) {
           if (err) {
             callback(err, null);
@@ -198,7 +202,7 @@ class reader {
 
     var segments = filePath.split('/');
     segments.forEach(function(segment) {
-      if (_.contains(self.globalOptions.directory.split('/'), segment) || segment === self.globalOptions.filename || _.isEmpty(segment)) {
+      if (_.contains(self.globalOptions.directory.split('/'), segment) || segment === self.globalOptions.fileName || _.isEmpty(segment)) {
 
       } else {
         var slugged = self.parseSlug(segment);

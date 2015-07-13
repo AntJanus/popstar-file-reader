@@ -29,7 +29,9 @@
     "async": "^1.2.1",
     "core-js": "^0.9.14",
     "json-structure-validator": "0.0.3",
-    "lodash": "^3.9.3"
+    "lodash": "^3.9.3",
+    "through2": "^2.0.0",
+    "vinyl-fs": "^1.0.0"
   },
   "devDependencies": {
     "babel": "^5.5.5",
