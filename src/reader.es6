@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import async from 'async';
 import fs from 'vinyl-fs';
 import nodeFs from 'fs';
 import through from 'through2';
